@@ -4,16 +4,13 @@ class Picture < ActiveRecord::Base
   belongs_to :user
   belongs_to :house
 
-  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png"]}
+  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/png"]}
 
-  def self.enroll(url)
+  def self.enroll(url, person, house_name)
 
-    person = 'gisele'
-    house = 'vsangeltest'
-    url1 = url
 
-    body = {:image => url1, :subject_id => person, :gallery_name => house, :selector => "SETPOSE", :symmetricFill => "true"  }
-    body = body
+    body = {:image => url, :subject_id => "Nichoals Sellek", :gallery_name => "Test House", :selector => "SETPOSE", :symmetricFill => "true"  }
+    body = body.to_json
 
     headers = {
       :content_type => 'application/json',

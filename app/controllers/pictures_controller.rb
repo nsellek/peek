@@ -15,7 +15,11 @@ class PicturesController < ApplicationController
 
 				@picture.house_id = house.id
 				@picture.save
-				enroll
+
+				person = @picture.user.first_name + " " + @picture.user.last_name
+				house_name = @picture.house.name
+				url = @picture.image.url
+				Picture.enroll(url, person, house_name)
 			end
 			p 'picture saved'
 			redirect_to root_path
@@ -23,12 +27,6 @@ class PicturesController < ApplicationController
 			p 'picture didnt save'
 		end
 	end
-
-	def enroll
-    url = @picture.image.url
-    Picture.enroll(url)
-    render root_path, notice: 'Face enfolled'
-  end
 
   def recognize
     url = @picture.image.url
