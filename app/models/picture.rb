@@ -1,5 +1,5 @@
 class Picture < ActiveRecord::Base
-	has_attached_file :image, styles: { large: "400x400" }
+	has_attached_file :image, styles: { large: {"400x400"}
 
   belongs_to :user
   belongs_to :house
@@ -9,7 +9,7 @@ class Picture < ActiveRecord::Base
   def self.enroll(url, person, house_name)
 
 
-    body = {:image => url, :subject_id => "Nichoals Sellek", :gallery_name => "Test House", :selector => "SETPOSE", :symmetricFill => "true"  }
+    body = {:image => url, :subject_id => person, :gallery_name => house_name, :selector => "SETPOSE", :symmetricFill => "true"  }
     body = body.to_json
 
     headers = {
@@ -43,7 +43,7 @@ class Picture < ActiveRecord::Base
     response_short = response.parsed_response
 
     successtest = response_short['images'][0]['transaction']['status']
-    p successtest
+    ap successtest
     successtest
   end
 end
