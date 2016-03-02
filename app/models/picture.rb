@@ -4,7 +4,7 @@ class Picture < ActiveRecord::Base
   belongs_to :user
   belongs_to :house
 
-  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/png"]}
+  validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/png"]}
 
   def self.enroll(url, person, house_name)
 
@@ -33,9 +33,9 @@ class Picture < ActiveRecord::Base
 
 
     headers = {
-      :content_type => 'application/json',
-      :app_id => ENV['KAIROS_ID'],
-      :app_key => ENV['KAIROS_KEY']
+      'content_type' => 'application/json',
+      'app_id' => ENV['KAIROS_ID'],
+      'app_key' => ENV['KAIROS_KEY']
     }
 
     response = HTTParty.post('https://api.kairos.com/recognize', { body: body, headers: headers})

@@ -32,7 +32,7 @@ class PicturesController < ApplicationController
     url = @picture.image.url
     successtest = Picture.recognize(url)
     if successtest == "success"
-      render :great_success
+      redirect_to root_path
     else
       render :great_fail
     end
