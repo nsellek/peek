@@ -40,7 +40,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'dotenv-rails'
-  
+
 end
 
 group :development do
@@ -63,5 +63,3 @@ gem 'httparty'
 gem 'json'
 gem 'twilio-ruby'
 gem 'awesome_print'
-
-
