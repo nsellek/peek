@@ -62,4 +62,5 @@ class Picture < ActiveRecord::Base
         :body => "Face Didn't Match"
         )
     end
+  end
 end
