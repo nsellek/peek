@@ -12,10 +12,8 @@ class PicturesController < ApplicationController
 		if params[:picture][:image]
 			params[:picture][:image].each do |image|
 				@picture = user.pictures.build(image: image)
-
 				@picture.house_id = house.id
 				@picture.save
-
 				person = @picture.user.first_name + " " + @picture.user.last_name
 				house_name = @picture.house.name
 				url = @picture.image.url
@@ -33,16 +31,12 @@ class PicturesController < ApplicationController
 	end
 
 	def match
-		ap params
-
 		user = User.find(params[:user_id])
 		house = House.find(params[:house_id])
 		if params[:picture][:image][0]
 			@picture = user.pictures.build(image: params[:picture][:image][0])
-
 			@picture.house_id = house.id
 			@picture.save
-
 			url = @picture.image.url
 			house_name = @picture.house.name
 			Picture.recognize(url, house_name)
@@ -56,7 +50,7 @@ class PicturesController < ApplicationController
     if successtest == "success"
       redirect_to root_path
     else
-
+    	
     end
   end
 

@@ -43,5 +43,23 @@ class Picture < ActiveRecord::Base
     successtest = response['images'][0]['transaction']['status']
     # ap successtest
     successtest
+    Picture.text(successtest)
   end
+
+  def self.text(status)
+    client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
+    from = '+19546136144'
+    if status == 'success'
+      client.account.messages.create(
+        :from => from,
+        :to => '+13053354270',
+        :body => 'Face Matched'
+        )
+    else
+      client.account.messages.create(
+        :from => from,
+        :to => '+13053354270',
+        :body => "Face Didn't Match"
+        )
+    end
 end
