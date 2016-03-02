@@ -12,18 +12,12 @@ class PicturesController < ApplicationController
 		if params[:picture][:image]
 			params[:picture][:image].each do |image|
 				@picture = user.pictures.build(image: image)
-<<<<<<< HEAD
-
-				@picture.house_id = house.id
-				@picture.save
-=======
 				@picture.house_id = house.id
 				@picture.save
 				person = @picture.user.first_name + " " + @picture.user.last_name
 				house_name = @picture.house.name
 				url = @picture.image.url
 				Picture.enroll(url, person, house_name)
->>>>>>> 7eef255614a339e4d73edd8d9c60f426e9da9e70
 			end
 			p 'picture saved'
 			redirect_to root_path
@@ -32,23 +26,6 @@ class PicturesController < ApplicationController
 		end
 	end
 
-<<<<<<< HEAD
-	def enroll
-    url = @picture.image.url
-    Picture.enroll(url)
-    render root_path, notice: 'Face enfolled'
-  end
-
-  def recognize
-    url = @picture.image.url
-    successtest = Picture.recognize(url)
-    if successtest == "success"
-      render :great_success
-    else
-      render :great_fail
-    end
-  end
-=======
 	def matchPage
 		@picture = Picture.new
 	end
@@ -67,7 +44,6 @@ class PicturesController < ApplicationController
     	redirect_to root_path
     end
 	end
->>>>>>> 7eef255614a339e4d73edd8d9c60f426e9da9e70
 
   private
 
