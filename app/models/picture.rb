@@ -22,7 +22,7 @@ class Picture < ActiveRecord::Base
     ap response
   end
 
-  def self.recognize(url, house_name)
+  def self.recognize(url, house_name, number)
 
     threshold = '0.80'
 
@@ -43,22 +43,22 @@ class Picture < ActiveRecord::Base
     successtest = response['images'][0]['transaction']['status']
     # ap successtest
     successtest
-    Picture.text(successtest)
+    Picture.text(successtest, number)
   end
 
-  def self.text(status)
+  def self.text(status, number)
     client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
     from = '+19546136144'
     if status == 'success'
       client.account.messages.create(
         :from => from,
-        :to => '+13053354270',
+        :to => "+1#{number}",
         :body => 'Face Matched'
         )
     else
       client.account.messages.create(
         :from => from,
-        :to => '+13053354270',
+        :to => "+1#{number}",
         :body => "Face Didn't Match"
         )
     end

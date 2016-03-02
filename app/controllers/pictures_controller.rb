@@ -39,20 +39,11 @@ class PicturesController < ApplicationController
 			@picture.save
 			url = @picture.image.url
 			house_name = @picture.house.name
-			Picture.recognize(url, house_name)
+			number = current_user.phone_number
+			Picture.recognize(url, house_name, number)
     	redirect_to root_path
     end
 	end
-
-  def recognize
-    url = @picture.image.url
-    successtest = Picture.recognize(url)
-    if successtest == "success"
-      redirect_to root_path
-    else
-    	
-    end
-  end
 
   private
 
