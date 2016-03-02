@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <h1><%= @house.name.split.map(&:capitalize)*' ' %> Members from show</h1>
+=======
+<h1><%= @house.name.split.map(&:capitalize)*' ' %> Members</h1>
+>>>>>>> 7eef255614a339e4d73edd8d9c60f426e9da9e70
 
 <ul>
 	<% @house.users.each do |user| %>
@@ -6,4 +10,8 @@
 	<% end %>
 </ul>
 
+<<<<<<< HEAD
 <%= link_to 'back to profile', controller: 'users', action: 'dashboard' %>
+=======
+<%= link_to 'back to profile', controller: 'users', action: 'dashboard' %>
+>>>>>>> 7eef255614a339e4d73edd8d9c60f426e9da9e70

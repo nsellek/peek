@@ -4,7 +4,11 @@
 <h4>Click a house to view members</h4>
 <ul>
 <% @user.houses.each do |house| %>
+<<<<<<< HEAD
 	<li><%= house.name.split.map(&:capitalize)*' ' %> | <%= link_to 'manage house', user_house_path(current_user.id, house.id) %> | <%= link_to 'access house' %></li>
+=======
+	<li><%= house.name.split.map(&:capitalize)*' ' %> | <%= link_to 'manage house', user_house_path(current_user.id, house.id) %> | <%= link_to 'access house', user_house_pictures_matchPage_path(current_user.id, house.id) %></li>
+>>>>>>> 7eef255614a339e4d73edd8d9c60f426e9da9e70
 <% end %>
 </ul>
 
