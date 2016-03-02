@@ -52,13 +52,13 @@ class Picture < ActiveRecord::Base
     if status == 'success'
       client.account.messages.create(
         :from => from,
-        :to => "+1#{number}",
+        :to => "+13053354270",
         :body => 'Face Matched'
         )
     else
       client.account.messages.create(
         :from => from,
-        :to => "+1#{number}",
+        :to => "+13053354270",
         :body => "Face Didn't Match"
         )
     end
