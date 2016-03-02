@@ -13,9 +13,9 @@ class Picture < ActiveRecord::Base
     body = body.to_json
 
     headers = {
-      :content_type => 'application/json',
-      :app_id => ENV['KAIROS_ID'],
-      :app_key => ENV['KAIROS_KEY']
+      'content_type' => 'application/json',
+      'app_id' => ENV['KAIROS_ID'],
+      'app_key' => ENV['KAIROS_KEY']
     }
 
     response = HTTParty.post('https://api.kairos.com/enroll', { headers: headers, body: body })
