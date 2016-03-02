@@ -22,13 +22,11 @@ class Picture < ActiveRecord::Base
     ap response
   end
 
-  def self.recognize(url)
+  def self.recognize(url, house_name)
 
-    house = 'vsangeltest'
-    lookup = url
     threshold = '0.80'
 
-    body = {:image => lookup, :gallery_name => house, :threshold => threshold}
+    body = {:image => url, :gallery_name => house_name, :threshold => threshold}
     body = body.to_json
 
 
@@ -40,10 +38,10 @@ class Picture < ActiveRecord::Base
 
     response = HTTParty.post('https://api.kairos.com/recognize', { body: body, headers: headers})
 
-    response_short = response.parsed_response
+    ap response
 
-    successtest = response_short['images'][0]['transaction']['status']
-    ap successtest
+    successtest = response['images'][0]['transaction']['status']
+    # ap successtest
     successtest
   end
 end

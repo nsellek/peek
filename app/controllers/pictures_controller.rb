@@ -28,13 +28,35 @@ class PicturesController < ApplicationController
 		end
 	end
 
+	def matchPage
+		@picture = Picture.new
+	end
+
+	def match
+		ap params
+
+		user = User.find(params[:user_id])
+		house = House.find(params[:house_id])
+		if params[:picture][:image][0]
+			@picture = user.pictures.build(image: params[:picture][:image][0])
+
+			@picture.house_id = house.id
+			@picture.save
+
+			url = @picture.image.url
+			house_name = @picture.house.name
+			Picture.recognize(url, house_name)
+    	redirect_to root_path
+    end
+	end
+
   def recognize
     url = @picture.image.url
     successtest = Picture.recognize(url)
     if successtest == "success"
       redirect_to root_path
     else
-      render :great_fail
+
     end
   end
 

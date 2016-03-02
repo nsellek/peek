@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :houses do
       get 'pictures/upload'
       post '/upload' => 'pictures#create'
+      get 'pictures/matchPage'
+      post '/match' => 'pictures#match'
     end
   end
   root 'users#dashboard'
