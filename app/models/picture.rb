@@ -22,7 +22,7 @@ class Picture < ActiveRecord::Base
     ap response
   end
 
-  def self.recognize(url, house_name, number)
+  def self.recognize(url, house_name)
 
     threshold = '0.80'
 
@@ -43,10 +43,10 @@ class Picture < ActiveRecord::Base
     successtest = response['images'][0]['transaction']['status']
     # ap successtest
     successtest
-    Picture.text(successtest, number)
+    Picture.text(successtest)
   end
 
-  def self.text(status, number)
+  def self.text(status)
     client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
     from = '+19546136144'
     if status == 'success'

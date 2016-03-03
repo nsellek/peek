@@ -40,13 +40,14 @@ class PicturesController < ApplicationController
 			url = @picture.image.url
 			house_name = @picture.house.name
 			number = current_user.phone_number
-			Picture.recognize(url, house_name, number)
+			Picture.recognize(url, house_name)
     	redirect_to root_path
     end
 	end
 
 	def lock
-		Picture.lock('lock')
+		lock = 'lock'
+		Picture.text(lock)
 		redirect_to root_path
 	end
 
