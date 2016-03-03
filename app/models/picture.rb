@@ -55,6 +55,12 @@ class Picture < ActiveRecord::Base
         :to => "+13053354270",
         :body => 'Face Matched'
         )
+		elsif status == 'lock'
+			client.account.messages.create(
+        :from => from,
+        :to => "+13053354270",
+        :body => 'House Locked'
+        )
     else
       client.account.messages.create(
         :from => from,

@@ -45,6 +45,11 @@ class PicturesController < ApplicationController
     end
 	end
 
+	def lock
+		Picture.lock('lock')
+		redirect_to root_path
+	end
+
   private
 
   def pic_params
