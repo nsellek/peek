@@ -1,14 +1,22 @@
-<h2>Create new house</h2>
-
-<%= form_for :house, url: user_houses_path(current_user.id) do |f| %>
+<div id="newHouse">
 
 	<div>
-		<%= f.label :name %> <br>
-		<%= f.text_field :name %>
-	</div>
-	
-	<div>
-		<%= f.submit 'Create House' %>
+		<%= image_tag("home-black-silhouette.png", alt: "House Icon") %>
 	</div>
 
-<% end %>
+	<h1>Create new house</h1>
+
+
+
+	<%= form_for :house, url: user_houses_path(current_user.id) do |f| %>
+
+	<div>
+		<%= f.text_field :name, :placeholder => "House Name"%>
+	</div>
+
+	<div>
+		<%= submit_tag nil, class: "form_submit", :placeholder => "Create House" %>
+	</div>
+
+	<% end %>
+</div>

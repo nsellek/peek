@@ -1,4 +1,5 @@
-<h1>Pictrue to Match</h1>
+<div id="Match">
+<h1>Picture to Match</h1>
 
 <%= form_for @picture, url: user_house_match_path, html: {multipart: true} do |f| %>
   <p>
@@ -9,3 +10,4 @@
 <% end %>
 
 <%= link_to 'back to profile', controller: 'users', action: 'dashboard' %>
+</div>
