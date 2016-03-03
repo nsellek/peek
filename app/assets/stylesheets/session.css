@@ -5,15 +5,25 @@
 * {
   margin: 0;
 }
+h1, h2, h3 {
+  padding: 5px;
+}
 
-
-#header, .footer {
+header, footer {
  background-color:black;
  color:white;
  text-align:right;
- padding:5px;
- height: 50px;
- /*position: absolute;*/
+ padding-top: 20px;
+ padding-right:20px;
+ padding-bottom: 0;
+ height: 40px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align:center;
 }
 
 #nav {
@@ -23,7 +33,13 @@
  color: white;
 }
 
-#login, #signup {
+#login,
+#signup,
+#newHouse,
+#Dashboard,
+#Match,
+#Recognition,
+#HouseMembers {
   margin: auto;
   text-align: center;
   padding: 5%;
@@ -37,34 +53,26 @@ input#user_zipcode,
 input#user_phone_number,
 input#user_email,
 input#user_password,
-input#user_password_confirmation {
-  width: 220px;
+input#user_password_confirmation,
+input#house_name {
+  width: 235px;
   height: 30px;
-  margin-bottom: 5px;
+  margin-top: 5px;
   font-size: 1rem;
   border-radius: 0.3rem;
   border: 2px inset;
 }
 
 input.form_submit {
-  width: 226px;
+  width: 243px;
   height: 37px;
-  margin-bottom: 5px;
+  margin-top: 5px;
   font-size: 1rem;
   color: white;
   border-radius: 0.3rem;
   border: 2px inset;
 }
 
-#footer {
-  background-color:black;
-  color:white;
-  clear:both;
-  text-align:center;
-  padding:5px;
-  /*position: sticky;*/
-  height: 4em;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
+#houseLI {
+  padding: 20px;
 }

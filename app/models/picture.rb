@@ -19,7 +19,7 @@ class Picture < ActiveRecord::Base
     }
 
     response = HTTParty.post('https://api.kairos.com/enroll', { headers: headers, body: body })
-    ap response
+    # ap response
   end
 
   def self.recognize(url, house_name)
@@ -38,7 +38,7 @@ class Picture < ActiveRecord::Base
 
     response = HTTParty.post('https://api.kairos.com/recognize', { body: body, headers: headers})
 
-    ap response
+    # ap response
 
     successtest = response['images'][0]['transaction']['status']
     # ap successtest

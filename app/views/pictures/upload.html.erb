@@ -1,5 +1,6 @@
-
+<div id="Recognition">
 <h1>Add Pictures for Facial Recognition</h1>
+
 
 <%= form_for @picture, url: user_house_upload_path, html: {multipart: true} do |f| %>
   <p>
@@ -16,3 +17,4 @@
 <% end %>
 
 <%= link_to 'back to profile', controller: 'users', action: 'dashboard' %>
+</div>
