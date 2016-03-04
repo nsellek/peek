@@ -5,8 +5,11 @@
 * {
   margin: 0;
 }
-h1, h2, h3 {
-  padding: 5px;
+h1 {
+  padding: 10px;
+  margin: 0;
+  background: black;
+  color: white;
 }
 
 header, footer {
@@ -43,7 +46,11 @@ footer {
   margin: auto;
   text-align: center;
   padding: 5%;
+  width: 550px;
+  height: 310px;
 }
+
+
 
 input#email,
 input#password,
@@ -54,7 +61,8 @@ input#user_phone_number,
 input#user_email,
 input#user_password,
 input#user_password_confirmation,
-input#house_name {
+input#house_name,
+input#picture_image {
   width: 235px;
   height: 30px;
   margin-top: 5px;
@@ -74,5 +82,17 @@ input.form_submit {
 }
 
 #houseLI {
-  padding: 20px;
+  padding: 10px;
+}
+
+.md-content {
+  min-width: 550px;
+  min-height: 300px;
+  text-align: center;
+  background: #a5a5a5;
+  padding-bottom: 20px;
+}
+
+#fields {
+  margin-top: 20px;
 }

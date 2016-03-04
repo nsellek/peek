@@ -1,24 +1,26 @@
+
 <div id="newHouse">
+
 
 	<div>
 		<%= image_tag("home-black-silhouette.png", alt: "House Icon") %>
 	</div>
 
-	<h1>Create new house</h1>
+	<div class="md-content">
+		<h1>Create new house</h1>
+		<div id="fields">
+
+				<%= form_for :house, url: user_houses_path(current_user.id) do |f| %>
+
+				<p><%= f.text_field :name, :placeholder => "House Name"%>
+
+				<p><%= submit_tag nil, class: "form_submit" %>
+
+				<% end %>
+
+				<p><%= link_to 'back to profile', controller: 'users', action: 'dashboard' %>
+			</div>
+		</div>
 
 
-
-<%= form_for :house, url: user_houses_path(current_user.id) do |f| %>
-
-	<div>
-		<%= f.text_field :name, :placeholder => "House Name"%>
-	</div>
-	
-	<div>
-		<%= submit_tag nil, class: "form_submit", :placeholder => "Create House" %>
-	</div>
-
-<% end %>
-
-<%= link_to 'back to profile', controller: 'users', action: 'dashboard' %>
 </div>

@@ -2,19 +2,20 @@
 <div id="login">
 
 
-  <h1>Login</h1>
+  <div class="md-content">
+    <h1>Login</h1>
+    <div id="fields">
+            <%= form_tag '/login' do %>
 
-  <%= form_tag '/login' do %>
+        <p><%= text_field_tag :email, value = nil, :placeholder => "Email address"%>
 
-  <div>
+        <p><%= password_field_tag :password, value = nil, :placeholder => "Password"%>
 
-    <%= text_field_tag :email, value = nil, :placeholder => "Email address"%>
+        <p><%= submit_tag nil, class: "form_submit"%>
+
+            <% end %>
+    </div>
   </div>
-  <div>
-    <%= password_field_tag :password, value = nil, :placeholder => "Password"%>
-  </div>
-  <div>
-    <%= submit_tag nil, class: "form_submit"%>
-  </div>
-  <% end %>
+
+
 </div>

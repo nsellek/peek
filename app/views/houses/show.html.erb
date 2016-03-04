@@ -1,9 +1,15 @@
 <div id="HouseMembers">
-<h1><%= @house.name.split.map(&:capitalize)*' ' %> Members</h1>
 
-	<% @house.users.each do |user| %>
-	<%= user.first_name %> <%= user.last_name %> | <%= link_to 'Add face', user_house_pictures_upload_path(user.id, @house.id) %>
-	<% end %>
+	<div class="md-content">
+		<h1><%= @house.name.split.map(&:capitalize)*' ' %> Members</h1>
+		<div id="fields">
 
-<%= link_to 'back to profile', controller: 'users', action: 'dashboard' %>
-</div>
+			<% @house.users.each do |user| %>
+			<p><%= user.first_name %> <%= user.last_name %> | <%= link_to 'Add face', user_house_pictures_upload_path(user.id, @house.id) %>
+				<% end %>
+
+				<p><%= link_to 'back to profile', controller: 'users', action: 'dashboard' %>
+				</div>
+			</div>
+
+		</div>
